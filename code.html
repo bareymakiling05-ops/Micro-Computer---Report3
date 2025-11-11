@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GROUP 2 - Microcomputer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            background-attachment: fixed;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff;
+            z-index: 1;
+            position: relative;
+        }
+        header p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-top: 10px;
+            z-index: 1;
+            position: relative;
+        }
+        section {
+            padding: 80px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #00ffff;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px #00ffff;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .grid-item {
+            text-align: center;
+        }
+        .grid-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .list-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            width: 250px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+        }
+        .list-item img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+        ul li::before {
+            content: '✓';
+            color: #00ffff;
+            margin-right: 10px;
+        }
+        .disadvantages ul li::before {
+            content: '⚠️';
+            color: #ff4500;
+        }
+        .background-image {
+            position: relative;
+            background-attachment: fixed;
+            padding: 80px 0;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+        .background-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+        }
+        .background-image .card {
+            position: relative;
+            z-index: 1;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-top: 2px solid #00ffff;
+            box-shadow: 0 0 20px #00ffff;
+        }
+        footer p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .contact-icons a {
+            color: #00ffff;
+            font-size: 2rem;
+            transition: color 0.3s;
+        }
+        .contact-icons a:hover {
+            color: #fff;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 1.2rem;
+            }
+            section h2 {
+                font-size: 2rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .list-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="home">
+        <h1>GROUP 2 - Microcomputer</h1>
+        <p>Understanding the Power of Small Computers</p>
+    </header>
+
+    <section id="what-is" class="container">
+        <h2>What is a Microcomputer</h2>
+        <div class="card">
+            <p>A microcomputer is a small, relatively inexpensive computer with a microprocessor as its central processing unit (CPU). These systems integrate the CPU, memory, and input/output (I/O) circuitry onto a single printed circuit board and can range from personal computers and smartphones to more specialized devices like those used in embedded systems.</p>
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="A close-up of a microcomputer motherboard showing integrated circuits and components." style="width: 100%; height: auto; margin-top: 20px; border-radius: 10px;">
+        </div>
+    </section>
+
+    <section id="examples" class="container">
+        <h2>Examples</h2>
+        <div class="grid">
+            <div class="grid-item card">
+                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="A Windows PC desktop computer on a desk with a monitor and keyboard.">
+                <p>Windows PC</p>
+            </div>
+            <div class="grid-item card">
+                <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="An iMac computer with a sleek all-in-one design.">
+                <p>iMac / Mac Mini</p>
+            </div>
+            <div class="grid-item card">
+                <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="A Chromebook laptop open on a table.">
+                <p>Chromebook</p>
+            </div>
+            <div class="grid-item card">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="A Raspberry Pi single-board computer with cables attached.">
+                <p>Raspberry Pi</p>
+            </div>
+            <div class="grid-item card">
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="An Android smartphone displaying an app interface.">
+                <p>Android Smartphone</p>
+            </div>
+            <div class="grid-item card">
+                <img src="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="An iPhone smartphone with a modern design.">
+                <p>iPhone</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="uses" class="container">
+        <h2>Uses / Applications</h2>
+        <div class="list">
+            <div class="list-item">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Students in a classroom learning with books and devices.">
+                <p>Education</p>
+            </div>
+            <div class="list-item">
+                <img src="https://images.unsplash.com/photo-1486312338219-ce68e2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Office workspace with computers.">
+                <p>Office Tasks</p>
+            </div>
+            <div class="list-item">
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Gaming setup with PC and peripherals.">
+                <p>Gaming</p>
+            </div>
+            <div class="list-item">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Web browser interface.">
+                <p>Internet Browsing</p>
+            </div>
+            <div class="list-item">
+                <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Video editing software on screen.">
+                <p>Multimedia Editing</p>
+            </div>
+            <div class="list-item">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Business analytics dashboard.">
+                <p>Business Management</p>
+            </div>
+            <div class="list-item">
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Coding screen with code.">
+                <p>Programming and Research</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="advantages" class="container">
+        <h2>Advantages</h2>
+        <div class="background-image" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+            <div class="card">
+                <ul>
+                    <li>Affordable</li>
+                    <li>Portable (for laptops and mobile devices)</li>
+                    <li>Easy to use</li>
+                    <li>Flexible for many tasks</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="disadvantages" class="container">
+        <h2>Disadvantages</h2>
+        <div class="background-image" style="background-image: url('https://images.unsplash.com/photo-1551808525-51a94da548ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+            <div class="card disadvantages">
+                <ul>
+                    <li>Limited performance compared to servers or supercomputers</li>
+                    <li>Can be vulnerable to malware</li>
+                    <li>Some devices cannot be upgraded</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="future-trends" class="container">
+        <h2>Future Trends</h2>
+        <div class="card">
+            <ul>
+                <li>Smaller but more powerful processors</li>
+                <li>AI-enhanced personal computers</li>
+                <li>Cloud-centered computing</li>
+                <li>Energy-efficient chip designs (e.g., ARM)</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>Presented by Group 2 — Barey Makiling, Arel Dacer, Lyka Catalan, Rodly Ramos, Mario Tuazon, Rain Accel Taguinod, Alfredo Alano</p>
+        <div class="contact-icons">
+            <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade-in animations on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
